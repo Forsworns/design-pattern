@@ -19,6 +19,7 @@ pub static AUTH_MAP: Lazy<Mutex<HashMap<String, String>>> = Lazy::new(|| {
 #[cfg(test)]
 mod tests {
     use crate::*;
+    // call `cargo test -- --nocapture`
     #[test]
     fn it_works() {
         let request = String::from("1successdog");

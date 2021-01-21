@@ -14,7 +14,7 @@ impl<T: HandlerInterceptor> SsoDecorator<T> {
     }
 
     pub fn pre_handle(
-        // have to call the handler_interceptor.pre_handle to overlap it
+        // have to call the handler_interceptor.pre_handle to overwrite it
         &self,
         request: &String,
         response: &String,
