@@ -1,10 +1,19 @@
 mod age;
 mod gender;
 
-use crate::{HashMap, Rule, TreeNodeLink};
+use crate::{HashMap, Lazy, Mutex, Rule, TreeNodeLink};
 
 pub use age::UserAgeFilter;
 pub use gender::UserGenderFilter;
+
+pub static LOGIC_FILTER_MAP: Lazy<Mutex<HashMap<String, Box<dyn LogicFilter>>>> = Lazy::new(|| {
+    Mutex::new({
+        let mut m = HashMap::<String, Box<dyn LogicFilter>>::new();
+        m.insert("gender".to_owned(), Box::new(UserGenderFilter {}));
+        m.insert("age".to_owned(), Box::new(UserAgeFilter {}));
+        m
+    })
+});
 
 pub trait LogicFilter: Send + std::fmt::Debug {
     fn filter(&self, matter_value: &String, info_list: &Vec<TreeNodeLink>) -> i64 {

@@ -1,17 +1,5 @@
-use crate::{
-    DecisionTree, EngineResult, HashMap, LogicFilter, TreeNode, UserAgeFilter, UserGenderFilter,
-};
-use once_cell::sync::Lazy;
-use std::sync::Mutex;
+use crate::{DecisionTree, EngineResult, HashMap, TreeNode, LOGIC_FILTER_MAP};
 
-static LOGIC_FILTER_MAP: Lazy<Mutex<HashMap<String, Box<dyn LogicFilter>>>> = Lazy::new(|| {
-    Mutex::new({
-        let mut m = HashMap::<String, Box<dyn LogicFilter>>::new();
-        m.insert("gender".to_owned(), Box::new(UserGenderFilter {}));
-        m.insert("age".to_owned(), Box::new(UserAgeFilter {}));
-        m
-    })
-});
 pub trait EngineConfig {
     fn process(
         &self,
