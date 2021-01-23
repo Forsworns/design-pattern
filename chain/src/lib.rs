@@ -13,6 +13,11 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 use std::time::SystemTime;
 
+// the implementation utilizes trait object, which is not the best solution,
+// but you can refer to https://forsworns.github.io/zh/blogs/20210120/ for its principle
+// moreover, see https://stackoverflow.com/questions/65845197/how-to-define-a-recursive-trait-bound-in-rust
+// or https://forsworns.github.io/zh/blogs/20210123/ for a better implementation
+
 #[cfg(test)]
 mod tests {
     use crate::*;
