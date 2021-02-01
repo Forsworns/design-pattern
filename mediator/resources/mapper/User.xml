@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC>
+<mapper namespace="UserDao">
+    <select id="queryUserInfoById" parameterType="u64" resultType="User">
+        SELECT id, name, age, createTime, updateTime
+        FROM user
+        where id = #{id}
+    </select>
+
+    <select id="queryUserList" parameterType="u8" resultType="User">
+        SELECT id, name, age, createTime, updateTime
+        FROM user
+        where age = #{age}
+    </select>
+
+</mapper>

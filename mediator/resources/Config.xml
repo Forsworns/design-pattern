@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC>
+
+<configuration>
+    <dataSource type="POOLED">
+        <property name="port" value="3306"/>
+        <property name="db_name" value="mediator"/>
+        <property name="user" value="temp_user"/>
+        <property name="password" value="123456"/>
+    </dataSource>
+
+    <mappers>
+        <mapper resource="resources/mapper/User.xml"/>
+        <mapper resource="resources/mapper/School.xml"/>
+    </mappers>
+
+</configuration>

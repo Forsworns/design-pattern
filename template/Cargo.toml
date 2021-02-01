@@ -8,3 +8,7 @@ edition = "2018"
 
 [dependencies]
 base64 = "0.13.0"
+regex = "1.4.3"
+reqwest = "0.11.0"
+futures = "0.3.12"
+tokio = { version = "1.1.1", features = ["full"] }

@@ -1,4 +1,4 @@
-use crate::{HashMap, MallTrait};
+use crate::{Client, HashMap, MallTrait};
 
 #[derive(Debug)]
 pub struct TaobaoMall {
@@ -19,8 +19,12 @@ impl MallTrait for TaobaoMall {
         true
     }
 
-    fn reptile(&self, _url: String) -> HashMap<String, String> {
+    fn reptile(&self, url: String) -> HashMap<String, String> {
         let mut map = HashMap::new();
+        let urls = vec![url];
+        let client = Client {};
+        let names = client.get_name(urls);
+        println!("Taobao: {:?}", names);
         map.insert("apple".into(), "233".into());
         map.insert("orange".into(), "2333".into());
         map

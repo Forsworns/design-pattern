@@ -1,4 +1,4 @@
-use crate::{HashMap, MallTrait};
+use crate::{Client, HashMap, MallTrait};
 
 #[derive(Debug)]
 pub struct JdMall {
@@ -16,8 +16,12 @@ impl MallTrait for JdMall {
         true
     }
 
-    fn reptile(&self, _url: String) -> HashMap<String, String> {
+    fn reptile(&self, url: String) -> HashMap<String, String> {
         let mut map = HashMap::new();
+        let urls = vec![url];
+        let client = Client {};
+        let names = client.get_name(urls);
+        println!("JD: {:?}", names);
         map.insert("laptop".into(), "4396".into());
         map.insert("cell phone".into(), "2200".into());
         map

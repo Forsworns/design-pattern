@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC>
+<mapper namespace="SchoolDao">
+    <select id="querySchoolInfoById" parameterType="String" resultType="School">
+        SELECT id, name, address, createTime, updateTime
+        FROM school
+        where id = #{id}
+    </select>
+
+</mapper>

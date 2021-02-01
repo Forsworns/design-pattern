@@ -36,15 +36,3 @@ impl EventManager {
         }
     }
 }
-
-#[macro_export]
-macro_rules! envent_manager {
-    () => {
-        $crate::event_manager::EventManager::new()
-    };
-    ($($operation:expr)*, $(,)?) => {
-        let event_manager = EventManager::new();
-        {event_manager.listeners.insert(operation, Vec::new());}+
-        event_manager
-    };
-}
